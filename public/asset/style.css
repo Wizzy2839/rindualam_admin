@@ -1,0 +1,58 @@
+/* style.css - Clean Minimalist */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar (Hitam Putih) */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff; 
+}
+::-webkit-scrollbar-thumb {
+    background: #000000; 
+}
+
+/* Nav Item Animation */
+.nav-item {
+    position: relative;
+    padding-bottom: 4px;
+}
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+}
+
+/* Scroll Reveal */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.active-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image Transitions */
+img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
