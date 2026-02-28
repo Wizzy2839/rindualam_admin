@@ -41,28 +41,28 @@
         
         <nav class="flex-1 py-8 px-4 space-y-1.5 overflow-y-auto">
             <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg {{ request()->routeIs('dashboard') ? 'bg-zinc-900 text-white font-medium shadow-md' : 'text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900' }} transition-all duration-200">
-                <i class="ph ph-squares-four text-xl"></i> Ringkasan Dasbor
+                <i class="ph ph-house text-xl"></i> Beranda
             </a>
             
-            <p class="px-4 pt-8 pb-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Manajemen Konten</p>
+            <p class="px-4 pt-8 pb-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Kelola Website</p>
             
             <a href="{{ route('menu-categories.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg {{ request()->routeIs('menu-categories.*') ? 'bg-zinc-900 text-white font-medium shadow-md' : 'text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900' }} transition-all duration-200">
-                <i class="ph ph-tag text-xl"></i> Kategori Produk
+                <i class="ph ph-tag text-xl"></i> Kategori Menu
             </a>
             <a href="{{ route('menu-items.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg {{ request()->routeIs('menu-items.*') ? 'bg-zinc-900 text-white font-medium shadow-md' : 'text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900' }} transition-all duration-200">
-                <i class="ph ph-coffee text-xl"></i> Katalog Menu
+                <i class="ph ph-coffee text-xl"></i> Daftar Menu
             </a>
             <a href="{{ route('galleries.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg {{ request()->routeIs('galleries.*') ? 'bg-zinc-900 text-white font-medium shadow-md' : 'text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900' }} transition-all duration-200">
-                <i class="ph ph-image text-xl"></i> Galeri Aset
+                <i class="ph ph-image text-xl"></i> Foto Galeri
             </a>
             <a href="{{ route('team-members.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg {{ request()->routeIs('team-members.*') ? 'bg-zinc-900 text-white font-medium shadow-md' : 'text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900' }} transition-all duration-200">
-                <i class="ph ph-users text-xl"></i> Direktori Tim
+                <i class="ph ph-users text-xl"></i> Tim Kami
             </a>
             
-            <p class="px-4 pt-8 pb-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Sistem</p>
+            <p class="px-4 pt-8 pb-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Lainnya</p>
             
             <a href="{{ route('settings.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg {{ request()->routeIs('settings.*') ? 'bg-zinc-900 text-white font-medium shadow-md' : 'text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900' }} transition-all duration-200">
-                <i class="ph ph-gear text-xl"></i> Pengaturan Global
+                <i class="ph ph-gear text-xl"></i> Pengaturan
             </a>
         </nav>
 

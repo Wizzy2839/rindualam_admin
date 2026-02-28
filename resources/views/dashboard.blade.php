@@ -5,12 +5,12 @@
 @section('content')
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Overview</p>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Beranda</p>
             <h2 class="text-3xl font-serif text-zinc-900 tracking-tight">
-                Halo, {{ Auth::user()->name }}.
+                Halo, {{ Auth::user()->name }}! 👋
             </h2>
             <p class="text-sm text-zinc-500 mt-2">
-                Berikut adalah ringkasan data operasional Rindu Alam Coffee hari ini.
+                Ini ringkasan data website Rindu Alam Coffee saat ini.
             </p>
         </div>
         
@@ -76,7 +76,7 @@
                     <i class="ph ph-plus text-lg"></i>
                 </div>
                 <h4 class="font-bold text-zinc-900 text-sm mb-2">Tambah Menu Baru</h4>
-                <p class="text-xs text-zinc-500 leading-relaxed">Masukkan daftar produk atau minuman baru ke dalam sistem katalog.</p>
+                <p class="text-xs text-zinc-500 leading-relaxed">Tambahkan minuman atau makanan baru ke daftar menu.</p>
             </a>
 
             <a href="{{ route('galleries.create') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 transition-all duration-300">
@@ -84,7 +84,7 @@
                     <i class="ph ph-upload-simple text-lg"></i>
                 </div>
                 <h4 class="font-bold text-zinc-900 text-sm mb-2">Upload Foto Galeri</h4>
-                <p class="text-xs text-zinc-500 leading-relaxed">Tambahkan dokumentasi visual terbaru untuk ditampilkan di halaman publik.</p>
+                <p class="text-xs text-zinc-500 leading-relaxed">Tambahkan foto-foto terbaru untuk ditampilkan di halaman galeri.</p>
             </a>
 
             <a href="{{ route('settings.index') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 transition-all duration-300">
@@ -92,7 +92,7 @@
                     <i class="ph ph-sliders-horizontal text-lg"></i>
                 </div>
                 <h4 class="font-bold text-zinc-900 text-sm mb-2">Pengaturan Website</h4>
-                <p class="text-xs text-zinc-500 leading-relaxed">Perbarui informasi jam operasional, kontak media sosial, dan alamat lokasi.</p>
+                <p class="text-xs text-zinc-500 leading-relaxed">Ubah jam buka, nomor WhatsApp, sosial media, dan alamat toko.</p>
             </a>
 
         </div>

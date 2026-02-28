@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('header', 'Manajemen SDM')
+@section('header', 'Tim Kami')
 
 @section('content')
     <div class="mb-8">
         <a href="{{ route('team-members.index') }}" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors duration-300">
-            <i class="ph ph-arrow-left text-base"></i> Kembali ke Direktori
+            <i class="ph ph-arrow-left text-base"></i> Kembali
         </a>
     </div>
 
@@ -13,7 +13,7 @@
         <div class="bg-red-50 border border-red-200 text-red-700 p-6 mb-8 text-sm flex gap-4 items-start">
             <i class="ph ph-warning-circle text-2xl shrink-0 mt-0.5"></i>
             <div>
-                <p class="font-bold uppercase tracking-widest text-[10px] mb-2">Kesalahan Validasi</p>
+                <p class="font-bold uppercase tracking-widest text-[10px] mb-2">Ada yang belum benar</p>
                 <ul class="list-disc pl-4 space-y-1">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -26,8 +26,8 @@
     <div class="bg-white border border-zinc-200 shadow-sm overflow-hidden">
         <div class="border-b border-zinc-200 px-8 py-6 flex justify-between items-center bg-zinc-50/50">
             <div>
-                <h3 class="font-serif text-2xl text-zinc-900 tracking-tight">Perbarui Profil Anggota</h3>
-                <p class="text-xs text-zinc-500 mt-1">Ubah informasi atau pasfoto untuk anggota tim: <span class="font-bold text-zinc-900">{{ $teamMember->name }}</span>.</p>
+                <h3 class="font-serif text-2xl text-zinc-900 tracking-tight">Edit Anggota Tim</h3>
+                <p class="text-xs text-zinc-500 mt-1">Ubah data untuk: <span class="font-bold text-zinc-900">{{ $teamMember->name }}</span>.</p>
             </div>
             <i class="ph ph-pencil-simple text-3xl text-zinc-300"></i>
         </div>
@@ -39,7 +39,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-6">
                 
                 <div class="md:col-span-4 flex flex-col items-center justify-start border-b md:border-b-0 md:border-r border-zinc-200 pb-8 md:pb-0 md:pr-8">
-                    <label class="block text-xs font-bold tracking-widest text-zinc-500 uppercase mb-6 text-center w-full">Pasfoto Profil</label>
+                    <label class="block text-xs font-bold tracking-widest text-zinc-500 uppercase mb-6 text-center w-full">Foto Profil</label>
                     
                     <div class="relative w-48 h-48 rounded-full border-2 border-dashed border-zinc-300 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-900 transition-colors duration-300 flex justify-center items-center overflow-hidden shadow-inner group/avatar">
                         
@@ -82,7 +82,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold tracking-widest text-zinc-500 uppercase mb-2">Jabatan / Peran <span class="text-red-500">*</span></label>
+                        <label class="block text-xs font-bold tracking-widest text-zinc-500 uppercase mb-2">Jabatan <span class="text-red-500">*</span></label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <i class="ph ph-briefcase text-zinc-400 text-lg"></i>
@@ -98,7 +98,7 @@
                     
                     <div class="bg-zinc-50 border border-zinc-200 p-5 flex items-start gap-4">
                         <i class="ph ph-info text-zinc-500 text-xl shrink-0"></i>
-                        <p class="text-xs text-zinc-600 leading-relaxed">Perubahan data ini akan langsung direfleksikan pada halaman situs web perusahaan.</p>
+                        <p class="text-xs text-zinc-600 leading-relaxed">Perubahan akan langsung tampil di website.</p>
                     </div>
                 </div>
 
@@ -107,7 +107,7 @@
             <div class="flex items-center justify-end gap-4 pt-8 border-t border-zinc-200 mt-4">
                 <a href="{{ route('team-members.index') }}" class="px-6 py-3 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors duration-300">Batal</a>
                 <button type="submit" class="bg-zinc-900 text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors duration-300 flex items-center gap-2 group-invalid:bg-zinc-300 group-invalid:text-zinc-500 group-invalid:cursor-not-allowed">
-                    Perbarui Data <i class="ph ph-floppy-disk text-base"></i>
+                    Simpan <i class="ph ph-floppy-disk text-base"></i>
                 </button>
             </div>
         </form>

@@ -13,7 +13,7 @@
 
         <div class="relative z-20 container mx-auto px-6 h-full flex flex-col justify-center md:justify-end pb-32 text-white">
             <div class="max-w-4xl reveal-up">
-                <h2 class="font-serif text-5xl md:text-7xl leading-tight mb-8 font-normal">
+                <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-8 font-normal">
                     {!! $setting->home_hero_title ?? 'Wajah Baru di <br> <span class="italic font-light opacity-90">Tepian Telaga.</span>' !!}
                 </h2>
                 <div class="h-[1px] w-16 bg-white/50 mb-8"></div>
@@ -29,7 +29,7 @@
             <div class="flex flex-col md:flex-row gap-20 items-start">
                 <div class="w-full md:w-5/12 reveal-up">
                     <span class="text-[10px] font-bold tracking-widest text-gray-400 mb-6 block uppercase border-b border-gray-200 pb-4">Our Philosophy</span>
-                    <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight font-medium">
+                    <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight font-medium">
                         {!! $setting->home_philosophy_title ?? 'Menggubah Rasa, <br><span class="text-gray-500 italic">Menyempurnakan Cerita.</span>' !!}
                     </h2>
                     <div class="space-y-6 text-gray-700 font-light text-[15px] leading-relaxed text-justify font-sans">

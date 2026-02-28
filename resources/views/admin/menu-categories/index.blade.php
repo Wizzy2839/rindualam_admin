@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('header', 'Klasifikasi Menu')
+@section('header', 'Kategori Menu')
 
 @section('content')
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-zinc-200 pb-6">
         <div>
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Pangkalan Data</p>
-            <h2 class="text-3xl font-serif text-zinc-900 tracking-tight">Daftar Kategori Produk</h2>
-            <p class="text-sm text-zinc-500 mt-2">Kelola pengelompokan dan urutan prioritas produk untuk navigasi pelanggan.</p>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Kelola Website</p>
+            <h2 class="text-3xl font-serif text-zinc-900 tracking-tight">Kategori Menu</h2>
+            <p class="text-sm text-zinc-500 mt-2">Atur kategori menu yang akan tampil di website.</p>
         </div>
         
         <div>
@@ -21,7 +21,7 @@
         <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 mb-10 text-sm flex gap-4 items-start shadow-sm">
             <i class="ph ph-check-circle text-2xl shrink-0 mt-0.5"></i>
             <div>
-                <p class="font-bold uppercase tracking-widest text-[10px] mb-1">Status Operasi</p>
+                <p class="font-bold uppercase tracking-widest text-[10px] mb-1">Berhasil!</p>
                 <p>{{ session('success') }}</p>
             </div>
         </div>
@@ -33,8 +33,8 @@
                 <thead class="bg-zinc-50 border-b border-zinc-200 text-[10px] uppercase font-bold text-zinc-500 tracking-[0.15em]">
                     <tr>
                         <th class="px-8 py-5">Nama Kategori</th>
-                        <th class="px-6 py-5 text-center">Prioritas Tampil (Urutan)</th>
-                        <th class="px-8 py-5 text-right">Tindakan</th>
+                        <th class="px-6 py-5 text-center">Urutan Tampil</th>
+                        <th class="px-8 py-5 text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-zinc-100">
@@ -72,8 +72,8 @@
                         <td colspan="3" class="px-6 py-20 text-center bg-zinc-50/50">
                             <div class="flex flex-col items-center justify-center">
                                 <i class="ph ph-folders text-5xl text-zinc-300 mb-4"></i>
-                                <h3 class="font-serif text-xl text-zinc-900 mb-2">Direktori Kosong</h3>
-                                <p class="text-xs text-zinc-500 max-w-sm leading-relaxed">Sistem belum memiliki data kategori menu. Silakan tambahkan kategori baru terlebih dahulu.</p>
+                                <h3 class="font-serif text-xl text-zinc-900 mb-2">Belum Ada Kategori</h3>
+                                <p class="text-xs text-zinc-500 max-w-sm leading-relaxed">Klik tombol <strong>+ Tambah Kategori</strong> di atas untuk mulai membuat kategori menu.</p>
                             </div>
                         </td>
                     </tr>

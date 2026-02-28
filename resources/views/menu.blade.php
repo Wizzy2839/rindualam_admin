@@ -6,7 +6,7 @@
     <header class="relative pt-40 pb-20 bg-white text-center">
         <div class="container mx-auto px-6 reveal-up">
             <p class="text-[10px] font-bold tracking-widest uppercase mb-4 text-gray-400">Curated Selection</p>
-            <h1 class="font-serif text-5xl md:text-7xl font-normal tracking-tight mb-6">Our Menu</h1>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight mb-6">Our Menu</h1>
             <p class="max-w-md mx-auto text-gray-600 font-light text-sm leading-7">
                 Dari kebun sendiri ke cangkir Anda. Nikmati rasa asli Ponorogo.
             </p>

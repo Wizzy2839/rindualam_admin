@@ -43,7 +43,7 @@ class TeamMemberController extends Controller
                 Storage::disk('public')->makeDirectory('teams');
             }
 
-            $absolutePath = storage_path('app/public/' . $path);
+            $absolutePath = public_path('uploads/' . $path);
 
             $manager = new ImageManager(new Driver());
             $img = $manager->read($imageFile->getRealPath());
@@ -96,7 +96,7 @@ class TeamMemberController extends Controller
                 Storage::disk('public')->makeDirectory('teams');
             }
 
-            $absolutePath = storage_path('app/public/' . $path);
+            $absolutePath = public_path('uploads/' . $path);
 
             $manager = new ImageManager(new Driver());
             $img = $manager->read($imageFile->getRealPath());

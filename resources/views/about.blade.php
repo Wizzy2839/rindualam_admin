@@ -9,7 +9,7 @@
         </div>
         <div class="relative z-10 text-center text-white reveal-up">
             <p class="text-[10px] font-bold tracking-widest uppercase mb-4">Since 2021</p>
-            <h1 class="font-serif text-5xl md:text-7xl font-normal tracking-tight">The Origin</h1>
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight">The Origin</h1>
         </div>
     </header>
 
@@ -18,7 +18,7 @@
             <div class="flex flex-col md:flex-row gap-20 items-center">
                 <div class="w-full md:w-1/2 reveal-up">
                     <span class="text-[10px] font-bold tracking-widest text-gray-400 mb-6 block uppercase border-b border-gray-200 pb-4">The Beginning</span>
-                    <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight font-medium">
+                    <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight font-medium">
                         Sebuah <span class="italic text-gray-500">Inisiasi.</span>
                     </h2>
                     <div class="space-y-6 text-gray-700 font-light text-[15px] leading-7 text-justify">
@@ -45,7 +45,7 @@
     <section class="py-28 bg-black text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20 max-w-3xl mx-auto reveal-up">
-                <h2 class="font-serif text-4xl md:text-5xl mb-6 font-normal">Total Dedication</h2>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 font-normal">Total Dedication</h2>
                 <p class="text-gray-400 font-light leading-relaxed">
                     Kami percaya bahwa rasa terbaik tidak bisa dibeli dari pihak ketiga. Rasa terbaik harus diciptakan, dirawat, dan dijaga sendiri. Inilah arti sesungguhnya dari <em>Farm to Cup</em>.
                 </p>

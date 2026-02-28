@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('header', 'Manajemen Tim')
+@section('header', 'Tim Kami')
 
 @section('content')
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-zinc-200 pb-6">
         <div>
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Direktori Internal</p>
-            <h2 class="text-3xl font-serif text-zinc-900 tracking-tight">Daftar Anggota Tim</h2>
-            <p class="text-sm text-zinc-500 mt-2">Kelola profil dan jabatan staf yang akan ditampilkan di halaman website publik.</p>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Kelola Website</p>
+            <h2 class="text-3xl font-serif text-zinc-900 tracking-tight">Tim Kami</h2>
+            <p class="text-sm text-zinc-500 mt-2">Kelola data anggota tim yang tampil di halaman "Cerita Kami".</p>
         </div>
         
         <div>
@@ -63,8 +63,8 @@
         @empty
         <div class="col-span-full py-20 bg-zinc-50 border border-zinc-200 flex flex-col items-center justify-center text-center">
             <i class="ph ph-users-three text-5xl text-zinc-300 mb-4"></i>
-            <h3 class="text-xl font-serif text-zinc-900 mb-2">Direktori Kosong</h3>
-            <p class="text-sm text-zinc-500 max-w-sm leading-relaxed">Sistem belum memiliki data profil anggota tim. Silakan tambahkan data baru melalui tombol di kanan atas.</p>
+            <h3 class="text-xl font-serif text-zinc-900 mb-2">Belum Ada Anggota Tim</h3>
+            <p class="text-sm text-zinc-500 max-w-sm leading-relaxed">Klik tombol <strong>+ Tambah Anggota</strong> di atas untuk menambahkan data tim.</p>
         </div>
         @endforelse
     </div>
