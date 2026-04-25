@@ -11,7 +11,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::latest()->get();
+        $galleries = Gallery::latest()->paginate(8);
         return view('admin.galleries.index', compact('galleries'));
     }
 
@@ -52,6 +52,6 @@ class GalleryController extends Controller
         }
         
         $gallery->delete();
-        return redirect()->route('galleries.index')->with('success', 'Foto berhasil dihapus!');
+        return redirect()->route('galleries.index')->with('success', 'Data foto berhasil dihapus dari galeri sistem.');
     }
 }

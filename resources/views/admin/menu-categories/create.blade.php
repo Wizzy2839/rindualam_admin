@@ -67,7 +67,7 @@
                     
                     <div class="bg-zinc-50 border border-zinc-200 p-5 mt-4 flex items-start gap-4">
                         <i class="ph ph-info text-zinc-500 text-xl shrink-0"></i>
-                        <p class="text-xs text-zinc-600 leading-relaxed">Catatan: Angka urutan terkecil (contoh: 1) akan mendapatkan prioritas tampilan paling atas pada antarmuka publik pelanggan.</p>
+                        <p class="text-xs text-zinc-600 leading-relaxed">Catatan: Angka urutan terkecil (contoh: 1) akan mendapatkan prioritas tampilan paling atas. Jika terdapat angka urutan yang sama, sistem otomatis mengurutkannya berdasarkan Abjad nama (A-Z).</p>
                     </div>
                 </div>
             </div>

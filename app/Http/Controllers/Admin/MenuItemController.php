@@ -12,8 +12,14 @@ class MenuItemController extends Controller
 {
     public function index()
     {
-        // Ambil data menu sekalian sama nama kategorinya (biar gak lemot)
-        $items = MenuItem::with('menuCategory')->latest()->get();
+        // Ambil data menu urut berdasarkan kategori (sort_order) baru nama item
+        $items = MenuItem::select('menu_items.*')
+            ->join('menu_categories', 'menu_items.menu_category_id', '=', 'menu_categories.id')
+            ->orderBy('menu_categories.sort_order', 'asc')
+            ->orderBy('menu_items.name', 'asc')
+            ->with('menuCategory')
+            ->get();
+
         return view('admin.menu-items.index', compact('items'));
     }
 
@@ -32,38 +38,37 @@ class MenuItemController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Maks 2MB ya bos!
-            'is_available' => 'boolean',
         ], [
-            'menu_category_id.required' => 'Pilih kategorinya woy!',
-            'image.image' => 'File harus berupa gambar (JPG/PNG)!',
-            'image.max' => 'Ukuran gambar maksimal 2MB aja, server lu jebol ntar!'
+            'menu_category_id.required' => 'Pilih kategorinya woy!'
         ]);
 
-        // Kalo centang "Tersedia" gak dicentang, anggap false (Habis)
-        $data['is_available'] = $request->has('is_available');
-
-        // Urusan nyimpen foto
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('menu-images', 'public');
-        }
-
         MenuItem::create($data);
-        return redirect()->route('menu-items.index')->with('success', 'Menu kopi lu berhasil diracik!');
+        return redirect()->route('menu-items.index')->with('success', 'Data item menu berhasil ditambahkan ke dalam katalog.');
     }
 
     public function destroy(MenuItem $menuItem)
     {
-        // Kalo dihapus, fotonya di folder storage juga harus dibuang dong, biar gak menuhin harddisk
-        if ($menuItem->image) {
-            Storage::disk('public')->delete($menuItem->image);
-        }
-        
+
         $menuItem->delete();
-        return redirect()->route('menu-items.index')->with('success', 'Menu sukses dihapus dari peradaban!');
+        return redirect()->route('menu-items.index')->with('success', 'Data item menu berhasil penghapusan dari sistem.');
     }
     
-    // Fungsi Edit & Update gw kosongin dulu ya, lu kerjain index sama create-nya dulu aja biar gak mabok.
-    public function edit(MenuItem $menuItem) {}
-    public function update(Request $request, MenuItem $menuItem) {}
+    public function edit(MenuItem $menuItem)
+    {
+        $categories = MenuCategory::orderBy('sort_order')->get();
+        return view('admin.menu-items.edit', compact('menuItem', 'categories'));
+    }
+
+    public function update(Request $request, MenuItem $menuItem)
+    {
+        $data = $request->validate([
+            'menu_category_id' => 'required|exists:menu_categories,id',
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+
+        $menuItem->update($data);
+        return redirect()->route('menu-items.index')->with('success', 'Perubahan data item menu berhasil disimpan.');
+    }
 }

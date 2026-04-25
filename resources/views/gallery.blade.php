@@ -18,7 +18,7 @@
             <div class="columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
                 @forelse($galleries as $idx => $photo)
                 <div class="break-inside-avoid group reveal-up delay-{{ ($idx % 3) * 100 }}">
-                    <img src="{{ asset('storage/' . $photo->image) }}" 
+                    <img src="{{ asset('storage/' . $photo->image) }}" loading="lazy"
                          class="w-full h-auto rounded-2xl grayscale hover:grayscale-0 transition duration-[1.5s] hover:scale-[1.02]" 
                          alt="{{ $photo->caption ?? 'Rindu Alam Gallery' }}">
                 </div>

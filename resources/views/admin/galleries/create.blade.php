@@ -39,7 +39,7 @@
                 </div>
                 
                 <p class="mt-2 text-[10px] font-bold text-red-500 hidden group-invalid:block uppercase tracking-widest">Peringatan: Anda wajib memilih setidaknya satu foto.</p>
-                <p class="mt-2 text-[10px] font-bold text-emerald-600 hidden group-valid:block uppercase tracking-widest">Status: Berkas foto telah dipilih.</p>
+                <p class="mt-2 text-[10px] font-bold text-emerald-600 hidden group-valid:block uppercase tracking-widest">Konfirmasi: Berkas foto telah dipilih.</p>
 
                 @error('images') 
                     <p class="text-red-500 text-xs mt-2 font-bold"><i class="ph ph-warning-circle"></i> {{ $message }}</p> 
@@ -71,26 +71,58 @@
             const input = event.target;
             const container = document.getElementById('imagePreviewContainer');
             const placeholder = document.getElementById('uploadPlaceholder');
+            const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+            let hasOversizedFiles = false;
             
             container.innerHTML = ''; 
             
             if (input.files && input.files.length > 0) {
-                container.classList.remove('hidden');
-                placeholder.classList.add('hidden');
-                
-                Array.from(input.files).forEach(file => {
-                    const reader = new FileReader();
-                    
-                    reader.onload = function(e) {
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        // Disesuaikan agar bingkai foto pratinjau tidak membulat
-                        img.className = 'w-full h-24 md:h-32 object-cover border border-zinc-200 shadow-sm bg-white p-1';
-                        container.appendChild(img);
+                // Konversi FileList menjadi Array untuk disortir/divalidasi
+                const validFiles = Array.from(input.files).filter(file => {
+                    if (file.size > maxSize) {
+                        hasOversizedFiles = true;
+                        return false; // Buang file ini
                     }
-                    
-                    reader.readAsDataURL(file);
+                    return true;
                 });
+
+                if (hasOversizedFiles) {
+                    Swal.fire({
+                        title: 'Ditolak Otomatis',
+                        text: 'Ditemukan foto berukuran melebihi 2MB. Foto tersebut tidak akan diunggah untuk mencegah beban server.',
+                        icon: 'warning',
+                        confirmButtonText: 'Mengerti',
+                        confirmButtonColor: '#18181b'
+                    });
+                    
+                    // Reset input files with DataTransfer trick (optional modern approach)
+                    const dataTransfer = new DataTransfer();
+                    validFiles.forEach(file => dataTransfer.items.add(file));
+                    input.files = dataTransfer.files;
+                }
+
+                if (validFiles.length > 0) {
+                    container.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                    
+                    validFiles.forEach(file => {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.className = 'w-full h-24 md:h-32 object-cover border border-zinc-200 shadow-sm bg-white p-1';
+                            container.appendChild(img);
+                        }
+                        
+                        reader.readAsDataURL(file);
+                    });
+                } else {
+                    // Jika semua file ternyata sizenya terlalu besar
+                    container.classList.add('hidden');
+                    placeholder.classList.remove('hidden');
+                    input.value = ''; // Reset the input completely
+                }
             } else {
                 container.classList.add('hidden');
                 placeholder.classList.remove('hidden');

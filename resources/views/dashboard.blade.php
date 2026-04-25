@@ -23,7 +23,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         
-        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 transition-colors duration-300 flex flex-col justify-between h-40">
+        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
             <div class="flex justify-between items-start">
                 <p class="text-xs font-bold tracking-widest text-zinc-500 uppercase">Total Menu</p>
                 <i class="ph ph-coffee text-xl text-zinc-400"></i>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 transition-colors duration-300 flex flex-col justify-between h-40">
+        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
             <div class="flex justify-between items-start">
                 <p class="text-xs font-bold tracking-widest text-zinc-500 uppercase">Kategori</p>
                 <i class="ph ph-folders text-xl text-zinc-400"></i>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 transition-colors duration-300 flex flex-col justify-between h-40">
+        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
             <div class="flex justify-between items-start">
                 <p class="text-xs font-bold tracking-widest text-zinc-500 uppercase">Foto Galeri</p>
                 <i class="ph ph-aperture text-xl text-zinc-400"></i>
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 transition-colors duration-300 flex flex-col justify-between h-40">
+        <div class="bg-white p-8 border border-zinc-200 hover:border-zinc-400 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
             <div class="flex justify-between items-start">
                 <p class="text-xs font-bold tracking-widest text-zinc-500 uppercase">Anggota Tim</p>
                 <i class="ph ph-identification-card text-xl text-zinc-400"></i>
@@ -71,7 +71,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <a href="{{ route('menu-items.create') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 transition-all duration-300">
+            <a href="{{ route('menu-items.create') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <div class="w-10 h-10 bg-white border border-zinc-200 rounded-full flex items-center justify-center mb-6 group-hover:bg-zinc-900 group-hover:text-white transition-colors duration-300">
                     <i class="ph ph-plus text-lg"></i>
                 </div>
@@ -79,7 +79,7 @@
                 <p class="text-xs text-zinc-500 leading-relaxed">Masukkan daftar produk atau minuman baru ke dalam sistem katalog.</p>
             </a>
 
-            <a href="{{ route('galleries.create') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 transition-all duration-300">
+            <a href="{{ route('galleries.create') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <div class="w-10 h-10 bg-white border border-zinc-200 rounded-full flex items-center justify-center mb-6 group-hover:bg-zinc-900 group-hover:text-white transition-colors duration-300">
                     <i class="ph ph-upload-simple text-lg"></i>
                 </div>
@@ -87,7 +87,7 @@
                 <p class="text-xs text-zinc-500 leading-relaxed">Tambahkan dokumentasi visual terbaru untuk ditampilkan di halaman publik.</p>
             </a>
 
-            <a href="{{ route('settings.index') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 transition-all duration-300">
+            <a href="{{ route('settings.index') }}" class="group bg-zinc-50 p-8 border border-zinc-100 hover:bg-white hover:border-zinc-300 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <div class="w-10 h-10 bg-white border border-zinc-200 rounded-full flex items-center justify-center mb-6 group-hover:bg-zinc-900 group-hover:text-white transition-colors duration-300">
                     <i class="ph ph-sliders-horizontal text-lg"></i>
                 </div>

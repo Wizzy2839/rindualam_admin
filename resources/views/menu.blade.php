@@ -3,11 +3,14 @@
 @section('title', 'MENU - Rindu Alam Coffee')
 
 @section('content')
-    <header class="relative pt-40 pb-20 bg-white text-center">
-        <div class="container mx-auto px-6 reveal-up">
-            <p class="text-[10px] font-bold tracking-widest uppercase mb-4 text-gray-400">Curated Selection</p>
-            <h1 class="font-serif text-5xl md:text-7xl font-normal tracking-tight mb-6">Our Menu</h1>
-            <p class="max-w-md mx-auto text-gray-600 font-light text-sm leading-7">
+    <header class="relative h-[60vh] min-h-[400px] bg-black overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 w-full h-full opacity-70">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale brightness-75" alt="Coffee Menu">
+        </div>
+        <div class="relative z-10 text-center text-white reveal-up">
+            <p class="text-[10px] font-bold tracking-widest uppercase mb-4 text-white/80">Curated Selection</p>
+            <h1 class="font-serif text-5xl md:text-7xl font-normal tracking-tight mb-6 text-white">Our Menu</h1>
+            <p class="max-w-md mx-auto text-white/70 font-light text-sm leading-7">
                 Dari kebun sendiri ke cangkir Anda. Nikmati rasa asli Ponorogo.
             </p>
         </div>

@@ -32,12 +32,10 @@
             <i class="ph ph-coffee text-3xl text-zinc-300"></i>
         </div>
 
-        <form action="{{ route('menu-items.store') }}" method="POST" enctype="multipart/form-data" class="p-8 group">
+        <form action="{{ route('menu-items.store') }}" method="POST" class="p-8 group">
             @csrf
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
-                
-                <div class="space-y-8">
+            <div class="space-y-8 mb-8">
                     
                     <div>
                         <label class="block text-xs font-bold tracking-widest text-zinc-500 uppercase mb-2">Nama Produk <span class="text-red-500">*</span></label>
@@ -96,40 +94,6 @@
                     </div>
                 </div>
 
-                <div class="space-y-8">
-                    
-                    <div>
-                        <label class="block text-xs font-bold tracking-widest text-zinc-500 uppercase mb-2">Foto Representasi Produk</label>
-                        
-                        <div class="relative border-2 border-dashed border-zinc-300 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-900 transition-colors duration-300 flex justify-center items-center overflow-hidden h-[260px] shadow-inner group/upload">
-                            
-                            <input type="file" name="image" id="imageInput" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" onchange="previewImage(event)">
-                            
-                            <div id="uploadPlaceholder" class="text-center z-10 pointer-events-none p-6">
-                                <div class="w-16 h-16 bg-white border border-zinc-200 rounded-full flex items-center justify-center mx-auto mb-4 group-hover/upload:scale-110 transition-transform duration-300">
-                                    <i class="ph ph-camera-plus text-2xl text-zinc-600"></i>
-                                </div>
-                                <p class="text-sm font-bold text-zinc-900">Unggah Gambar</p>
-                                <p class="text-xs text-zinc-500 mt-2">Maks. 2MB. Format: JPG/PNG/WEBP.</p>
-                            </div>
-
-                            <img id="imagePreview" src="#" alt="Pratinjau" class="absolute inset-0 w-full h-full object-cover hidden z-10">
-                        </div>
-                    </div>
-
-                    <div class="border border-zinc-200 p-6 bg-zinc-50/50 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-bold text-zinc-900">Status Ketersediaan</p>
-                            <p class="text-xs text-zinc-500 mt-1">Nonaktifkan jika produk sedang kosong (Sold Out).</p>
-                        </div>
-                        
-                        <label class="relative inline-flex items-center cursor-pointer">
-                            <input type="checkbox" name="is_available" value="1" checked class="sr-only peer">
-                            <div class="w-11 h-6 bg-zinc-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-zinc-900"></div>
-                        </label>
-                    </div>
-
-                </div>
             </div>
 
             <div class="flex items-center justify-end gap-4 pt-8 border-t border-zinc-200 mt-4">
@@ -141,27 +105,5 @@
         </form>
     </div>
 
-    <script>
-        function previewImage(event) {
-            const input = event.target;
-            const preview = document.getElementById('imagePreview');
-            const placeholder = document.getElementById('uploadPlaceholder');
-            
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.classList.remove('hidden');
-                    placeholder.classList.add('hidden');
-                }
-                
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                preview.src = '#';
-                preview.classList.add('hidden');
-                placeholder.classList.remove('hidden');
-            }
-        }
-    </script>
+
 @endsection

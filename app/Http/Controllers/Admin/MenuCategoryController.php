@@ -10,7 +10,7 @@ class MenuCategoryController extends Controller
 {
     public function index()
     {
-        $categories = MenuCategory::orderBy('sort_order')->get();
+        $categories = MenuCategory::orderBy('sort_order')->orderBy('name', 'asc')->get();
         return view('admin.menu-categories.index', compact('categories'));
     }
 
@@ -27,7 +27,7 @@ class MenuCategoryController extends Controller
         ]);
 
         MenuCategory::create($request->all());
-        return redirect()->route('menu-categories.index')->with('success', 'Kategori sukses ditambah!');
+        return redirect()->route('menu-categories.index')->with('success', 'Data kategori produk berhasil ditambahkan.');
     }
 
     public function edit(MenuCategory $menuCategory)
@@ -43,12 +43,12 @@ class MenuCategoryController extends Controller
         ]);
 
         $menuCategory->update($request->all());
-        return redirect()->route('menu-categories.index')->with('success', 'Kategori sukses diupdate!');
+        return redirect()->route('menu-categories.index')->with('success', 'Perubahan data kategori berhasil disimpan.');
     }
 
     public function destroy(MenuCategory $menuCategory)
     {
         $menuCategory->delete();
-        return redirect()->route('menu-categories.index')->with('success', 'Kategori udah dihapus!');
+        return redirect()->route('menu-categories.index')->with('success', 'Kategori berhasil dihapus dari sistem.');
     }
 }

@@ -8,39 +8,45 @@
             <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale brightness-75" alt="Coffee Farm">
         </div>
         <div class="relative z-10 text-center text-white reveal-up">
-            <p class="text-[10px] font-bold tracking-widest uppercase mb-4">Since 2021</p>
-            <h1 class="font-serif text-5xl md:text-7xl font-normal tracking-tight">The Origin</h1>
+            <p class="text-[10px] font-bold tracking-widest uppercase mb-4">{{ $setting->about_hero_label ?? 'Since 2021' }}</p>
+            <h1 class="font-serif text-4xl md:text-7xl font-normal tracking-tight">The Origin</h1>
         </div>
     </header>
 
-    <section class="py-28 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-20 items-center">
-                <div class="w-full md:w-1/2 reveal-up">
-                    <span class="text-[10px] font-bold tracking-widest text-gray-400 mb-6 block uppercase border-b border-gray-200 pb-4">The Beginning</span>
-                    <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight font-medium">
-                        Sebuah <span class="italic text-gray-500">Inisiasi.</span>
-                    </h2>
-                    <div class="space-y-6 text-gray-700 font-light text-[15px] leading-7 text-justify">
-                        <p>
-                            Cerita ini bermula di tepian Telaga Ngebel. Sebuah destinasi indah yang sayangnya, bagi penikmat kopi sejati, terasa ada yang kurang. Sejauh mata memandang, hanya ada deretan warkop tradisional dengan kopi <em>sachet</em> atau tubruk sederhana.
-                        </p>
-                        <p>
-                            Kami bertanya: <em>"Kenapa tidak ada kopi yang layak di tempat seindah ini?"</em>
-                        </p>
-                        <p>
-                            Itulah titik awal Rindu Alam. Kami tidak ingin sekadar membuka kedai. Kami ingin membawa kultur. Membawa standar rasa baru. Menjadi <strong>Coffeeshop Modern Pertama</strong> yang berdiri di tanah ini, menantang status quo demi secangkir kopi yang pantas Anda nikmati.
-                        </p>
+    <div class="bg-white">
+        @forelse($aboutSections as $index => $sec)
+            <section class="py-24 {{ $index % 2 == 1 ? 'bg-zinc-50' : 'bg-white' }}">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row gap-20 items-center {{ $sec->image_position == 'left' ? 'md:flex-row-reverse' : '' }}">
+                        <div class="w-full md:w-1/2 reveal-up">
+                            @if($sec->label)
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 mb-6 block uppercase border-b border-gray-200 pb-4">{{ $sec->label }}</span>
+                            @endif
+                            <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight font-medium">
+                                {!! $sec->title !!}
+                            </h2>
+                            <div class="space-y-6 text-gray-700 font-light text-[15px] leading-7 text-justify">
+                                {!! $sec->content !!}
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 relative reveal-up delay-100">
+                            <div class="aspect-[4/5] overflow-hidden bg-gray-50">
+                                @if($sec->image)
+                                    <img src="{{ asset('storage/' . $sec->image) }}" loading="lazy" class="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition duration-1000" alt="{{ strip_tags($sec->title) }}">
+                                @else
+                                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop" loading="lazy" class="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition duration-1000" alt="Placeholder">
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 relative reveal-up delay-100">
-                    <div class="aspect-[4/5] overflow-hidden bg-gray-50">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000" alt="Ngebel Lake Atmosphere">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        @empty
+            <section class="py-24 bg-white text-center">
+                <p class="text-zinc-400 font-mono text-sm">Belum ada kisah yang ditulis. Tambahkan via admin panel.</p>
+            </section>
+        @endforelse
+    </div>
 
     <section class="py-28 bg-black text-white">
         <div class="container mx-auto px-6">
@@ -94,9 +100,9 @@
                 <div class="group reveal-up text-center">
                     <div class="w-48 h-48 mx-auto rounded-full overflow-hidden bg-[#151515] mb-6 border-2 border-white/10 group-hover:border-white/50 transition duration-500">
                         @if($team->image)
-                            <img src="{{ asset('storage/' . $team->image) }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-[1.5s]">
+                            <img src="{{ asset('storage/' . $team->image) }}" loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-[1.5s]">
                         @else
-                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" class="w-full h-full object-cover grayscale opacity-50">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" loading="lazy" class="w-full h-full object-cover grayscale opacity-50">
                         @endif
                     </div>
                     <h3 class="font-serif text-2xl mb-2">{{ $team->name }}</h3>

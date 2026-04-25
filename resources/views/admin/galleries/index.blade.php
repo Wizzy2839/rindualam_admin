@@ -21,7 +21,7 @@
         <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 mb-10 text-sm flex gap-4 items-start shadow-sm">
             <i class="ph ph-check-circle text-2xl shrink-0 mt-0.5"></i>
             <div>
-                <p class="font-bold uppercase tracking-widest text-[10px] mb-1">Status Operasi</p>
+                <p class="font-bold uppercase tracking-widest text-[10px] mb-1">Notifikasi Sistem</p>
                 <p>{{ session('success') }}</p>
             </div>
         </div>
@@ -35,9 +35,9 @@
                 <img src="{{ asset('storage/' . $photo->image) }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 
                 <div class="absolute inset-0 bg-zinc-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-10">
-                    <form action="{{ route('galleries.destroy', $photo->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus aset visual ini secara permanen dari sistem?')">
+                    <form action="{{ route('galleries.destroy', $photo->id) }}" method="POST">
                         @csrf @method('DELETE')
-                        <button type="submit" class="bg-white text-red-600 px-5 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-red-50 hover:text-red-700 transition transform scale-90 group-hover:scale-100 duration-300 shadow-xl flex items-center gap-2">
+                        <button type="submit" class="btn-delete bg-white text-red-600 px-5 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-red-50 hover:text-red-700 transition transform scale-90 group-hover:scale-100 duration-300 shadow-xl flex items-center gap-2">
                             <i class="ph ph-trash text-sm"></i> Hapus Aset
                         </button>
                     </form>
@@ -58,4 +58,10 @@
         </div>
         @endforelse
     </div>
+
+    @if($galleries->hasPages())
+        <div class="mt-12 mb-8 bg-white border border-zinc-200 p-4 shadow-sm">
+            {{ $galleries->links() }}
+        </div>
+    @endif
 @endsection

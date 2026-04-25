@@ -7,7 +7,7 @@
         <div>
             <p class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">Pangkalan Data</p>
             <h2 class="text-3xl font-serif text-zinc-900 tracking-tight">Daftar Kategori Produk</h2>
-            <p class="text-sm text-zinc-500 mt-2">Kelola pengelompokan dan urutan prioritas produk untuk navigasi pelanggan.</p>
+            <p class="text-sm text-zinc-500 mt-2">Kelola pengelompokan dan urutan prioritas produk. Jika urutan sama, sistem akan menggunakan susunan abjad (A-Z).</p>
         </div>
         
         <div>
@@ -21,7 +21,7 @@
         <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 mb-10 text-sm flex gap-4 items-start shadow-sm">
             <i class="ph ph-check-circle text-2xl shrink-0 mt-0.5"></i>
             <div>
-                <p class="font-bold uppercase tracking-widest text-[10px] mb-1">Status Operasi</p>
+                <p class="font-bold uppercase tracking-widest text-[10px] mb-1">Notifikasi Sistem</p>
                 <p>{{ session('success') }}</p>
             </div>
         </div>
@@ -29,7 +29,7 @@
 
     <div class="bg-white border border-zinc-200 shadow-sm overflow-hidden">
         <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm min-w-max">
+            <table class="w-full text-left text-sm min-w-max dataTable">
                 <thead class="bg-zinc-50 border-b border-zinc-200 text-[10px] uppercase font-bold text-zinc-500 tracking-[0.15em]">
                     <tr>
                         <th class="px-8 py-5">Nama Kategori</th>
@@ -38,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-zinc-100">
-                    @forelse($categories as $category)
+                    @foreach($categories as $category)
                     <tr class="hover:bg-zinc-50 transition-colors duration-200 group">
                         <td class="px-8 py-5">
                             <p class="font-bold text-zinc-900 text-base flex items-center gap-3">
@@ -57,9 +57,9 @@
                                     <i class="ph ph-pencil-simple text-base"></i>
                                 </a>
 
-                                <form action="{{ route('menu-categories.destroy', $category->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kategori ini? Seluruh item menu yang terhubung mungkin akan kehilangan referensi.')">
+                                <form action="{{ route('menu-categories.destroy', $category->id) }}" method="POST" class="inline-block">
                                     @csrf @method('DELETE')
-                                    <button type="submit" class="w-8 h-8 flex items-center justify-center bg-white border border-zinc-200 text-red-600 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition-colors shadow-sm" title="Hapus Data">
+                                    <button type="submit" class="btn-delete w-8 h-8 flex items-center justify-center bg-white border border-zinc-200 text-red-600 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition-colors shadow-sm" title="Hapus Data">
                                         <i class="ph ph-trash text-base"></i>
                                     </button>
                                 </form>
@@ -67,17 +67,7 @@
                             </div>
                         </td>
                     </tr>
-                    @empty
-                    <tr>
-                        <td colspan="3" class="px-6 py-20 text-center bg-zinc-50/50">
-                            <div class="flex flex-col items-center justify-center">
-                                <i class="ph ph-folders text-5xl text-zinc-300 mb-4"></i>
-                                <h3 class="font-serif text-xl text-zinc-900 mb-2">Direktori Kosong</h3>
-                                <p class="text-xs text-zinc-500 max-w-sm leading-relaxed">Sistem belum memiliki data kategori menu. Silakan tambahkan kategori baru terlebih dahulu.</p>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>
